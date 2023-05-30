@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+    <script src="min.js"></script>
+
+    <title>Data Visualization for Search4Code</title>
+</head>
+<body>
+    <header>
+        <div class="text-center">
+            <h4>Data Visualization for
+                <a href="https://github.com/microsoft/Search4Code" target="_blank">Search4Code</a>
+            </h4>
+        </div>
+        <div class="row">
+            <div class="control">
+                <div>
+                    <strong>Data Output Range (Popularity Rank)</strong>
+                </div>
+                <div>
+                    <input type="range" class="formControlRange" id="data_output_range" min="1" value="10">
+                </div>
+                <div>
+                    Output Rate: Top <span id="data_output_rate">1</span>% (1 - <span id="data_output_max">10</span>)
+                </div>
+            </div>
+            <div class="control">
+                <strong>Search Type</strong>
+                <div>
+                    <input type="radio" class="form-check-input search_type" id="search_type_all" name="search_type" value="BOTH">
+                    <label class="form-check-label" for="search_type_all">
+                        All
+                    </label>
+                    <input type="radio" class="form-check-input search_type" id="search_type_code" name="search_type" value="TRUE" checked>
+                    <label class="form-check-label" for="search_type_code">
+                        Code Search
+                    </label>
+                    <input type="radio" class="form-check-input search_type" id="search_type_normal" name="search_type" value="FALSE">
+                    <label class="form-check-label" for="search_type_normal">
+                        General Search
+                    </label>
+                </div>
+            </div>
+            <div class="control">
+                <strong>Language</strong>
+                <div style="vertical-align: middle;">
+                    <input type="radio" class="form-check-input language_type" id="language_type_java" name="language_type" value="Java" checked>
+                    <label class="form-check-label" for="language_type_java">
+                        Java
+                    </label>
+                    <input type="radio" class="form-check-input language_type" id="language_type_c_sharp" name="language_type" value="C#">
+                    <label class="form-check-label" for="language_type_c_sharp">
+                        C#
+                    </label>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div id="data_container">
+            <div class="row">
+                <h4>Node-Link Diagram for Similar Keywords</h4>
+                <h5>Attributes : Rank (Color)</h5>
+                <svg class="wide_card" id="network"></svg>
+            </div>
+            <div class="row">
+                <h4>Histogram for Number of Similar Keywords (More than 1)</h4>
+                <h5>Attributes : Number of Similar Keywords (Height)</h5>
+                <svg class="wide_card" id="histogram"></svg>
+            </div>
+            <div class="row">
+                <h4>World Cloud : Keywords by Frequency of Apperance in Queries</h4>
+                <h5>Attributes : Words (Color), Frequency of Words (Size)</h5>
+                <h4>Pie Chart : Domains Ratio in Urls</h4>
+                <h5>Attributes : Domain Rate (Size, Color)</h5>
+                <div class="col">
+                    <svg class="normal_card" id="word_cloud"></svg>
+                </div>
+                <div class="col">
+                    <svg class="normal_card" id="pie_chart" ></svg>
+                    <div id="pie_tooltip"></div>
+                </div>
+            </div>
+            <div>
+                <h4>Data Table : For Checking Raw Data</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th width="30%">Queries (Rank)</th>
+                            <th width="30%">Url</th>
+                            <th width="15%">Domain</th>
+                            <th width="15%">Code Search</th>
+                            <th width="10%">Language</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data_table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="index.min.js"></script>
+</body>
+</html>

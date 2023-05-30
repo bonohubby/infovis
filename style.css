@@ -1,0 +1,126 @@
+body {
+    background: #eee;
+}
+
+header {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    min-width: 1200px;
+    max-width: 1200px;
+    background: white;
+    padding-top: 10px;
+}
+
+.container {
+    min-width: 1200px;
+    max-width: 1200px;
+    background: white;
+    padding: 10px 10px 10px 10px;
+}
+
+.control {
+    width: 360px;
+    text-align: center;
+    border: solid #dddddd 2px;
+    border-radius: 20px;
+    margin: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+#language_type_c_sharp {
+    margin-left: 30px;
+}
+
+.formControlRange {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+#data_container {
+    margin-top: 240px;
+}
+
+.wide_card {
+    width: 1000px;
+    height: 500px;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h4, h5 {
+    margin-left: 20px;
+}
+
+.row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#network text, #network circle {
+    cursor: pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+
+#network .links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+    stroke-width: 1;
+}
+  
+#network .nodes circle {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+  
+#network text {
+    font-size: 10px;
+}
+
+#histogram rect:hover {
+    opacity: 0.7;
+}
+
+.normal_card {
+    width: 500px;
+    height: 500px;
+    margin-left: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+.pie_node {
+    opacity: 0.9;
+}
+
+.pie_node:hover {
+    opacity: 0.5;
+}
+
+#pie_tooltip {
+    position: absolute;
+    opacity: 0;
+    background-color: #fff;
+    border: solid #999 2px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+#data_table {
+    font-size: 14px;
+}
+
+.url {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
